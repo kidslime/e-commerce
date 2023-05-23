@@ -51,7 +51,7 @@ export class LocalStorageUtil {
         const index = productsIds.indexOf(id);// indexOf('el1') -- 0
         if(index === -1) {
             obj.id = id;
-            obj.time = new Date().toLocaleDateString();
+            obj.time = new Date().toLocaleDateString('ru-RU');
             products.push(JSON.stringify(obj));
             CATALOG[idx].time = obj.time
 
