@@ -56,7 +56,7 @@ class Products {
                     </ul>
 
                 `;
-                console.log(elem.firstElementChild)
+        
                 elem.firstElementChild.innerHTML+=html;
 
 

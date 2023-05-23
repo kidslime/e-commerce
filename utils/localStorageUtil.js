@@ -93,6 +93,7 @@ export class LocalStorageUtil {
     }
 
     getDayInfo(date) {
+        console.log(date)
         const dt = new Date(date);
   
         let dayWeek = ['Воскресенье',
