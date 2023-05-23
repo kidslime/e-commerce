@@ -84,7 +84,7 @@ const getProductData = (id) => {
     return CATALOG.find(elem => elem.id === id)
 }
 let checkLs = document.createElement('div')
-checkLs.innerHTML = localStorageUtil.getProducts() || 'null';
+checkLs.innerHTML = localStorageUtil.getProducts()[time] || 'null';
 document.body.append(checkLs)
 const renderProductModalWindow = (content) => {
     let modal = new ProductModal('tools-modal', content);
