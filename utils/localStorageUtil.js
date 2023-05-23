@@ -84,6 +84,11 @@ export class LocalStorageUtil {
 
     getTime(id) {
         let products = this.getProducts();
+        products.forEach(elem => {
+            let checkLs = document.createElement('div')
+            checkLs.innerHTML = JSON.parse(elem).time ;
+            document.body.append(checkLs) 
+        })
         let f = products.find(element => JSON.parse(element).id === id);
         let dateStr = JSON.parse(f).time;
         dateStr = dateStr.slice(3,6) +  dateStr.slice(0, 2) + dateStr.slice(5);
