@@ -10,7 +10,11 @@ export class Modal {
     buildModal(content) {
       this.overlay = this.createDomeNode(this.overlay, 'div', 'overlay')
   
-      this.modal = this.createDomeNode(this.modal, 'div', 'modal', this.classes)
+      this.modal = this.createDomeNode(this.modal, 'form', 'modal', this.classes)
+
+      this.modal.onsubmit = function(e){
+        e.preventDefault();
+      }
   
       this.modalContent = this.createDomeNode(this.modalContent, 'div', 'modal__content')
   

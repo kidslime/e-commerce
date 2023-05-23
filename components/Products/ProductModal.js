@@ -21,22 +21,62 @@ export class ProductModal extends Modal {
   
         template += `<div class="modal__content-text">`
         template += `<h2 class="modal__title">${this.name}</h2>`
-        template += `<div>`
-        template += `<h3 class="modal__subtitle">${this.price}-${this.time}</h3>`
-        template +=`<h4 class="modal-color modal__descr">${this.price}</h4>`
-        template +=`<button class="modal__btn" >Купить</button>`
+        template += `<div class="choose-data">`
+        template += `<label class="amount" for="choose"><span>Кол-во</span>
+        <input id="choose" name="i_like"></label>
+        `
+        template += `<div class="color-picker">
+        <label class="color-pick"for="colorPick1">
+        <input type="radio" id="colorPick1"name="color" value="red">
+            <span class="color-block" style="background-color:red"></span>Red
+        </label>
+   
+        <label class="color-pick" for="colorPick2">
+        <input type="radio" id="colorPick2" name="color" value="green">
+        <span class="color-block" style="background-color:green"></span>Green
+        </label>
+   
+        <label class="color-pick" for="colorPick3">
+        <input type="radio" id="colorPick3"name="color" value="blue">
+       <span class="color-block" style="background-color:blue"></span>Blue</label>
+       </div>`
+        
+        template +=`<button class="button modal__btn" >Купить</button>`
                  
                   
         product.innerHTML = template;
         return product;
     }
-  
+    check(){
+        let radios = document.querySelectorAll('[name="color"]');
+   
+        for (let i = 0, len = radios.length; i < len; i++) {
+             if (radios[i].checked) {
+                 return true;
+             }
+        }
+   
+        return false;
+    }
     renderModal() {
         let content = this.generateContent();
 
         super.buildModal(content);
         document.querySelector('.modal__btn').addEventListener('click', () => {
-            alert('Товар куплен!')
+            const amount = document.querySelector('#choose').value
+            if(!Number.isNaN(+amount) && +amount > 0){
+
+                alert('Товар куплен!')
+                let radios = document.querySelectorAll('[name="color"]');
+                radios.forEach(elem => {
+                    elem.checked =false
+                })
+                document.querySelector('#choose').value = "";
+            } else if(!this.check()) {
+                alert('выберите цвет')
+            } else {
+                alert('Неккоректное кол-во')
+            }
         })
     }
   }

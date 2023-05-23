@@ -11,14 +11,15 @@
 </head>
 
 <body>
-    <div id="header"></div>
+    <header class="header" id="header"></header>
     <div id="products"></div>
-    <div id="shopping"></div>
+    <footer class="footer"></footer>
 
     <!-- Constants and Utils-->
     <script src="constants/catalog.js"></script>
     <script src="constants/root.js"></script>
-    <script src="utils/localStorageUtil.js"></script>
+    <script type="module" src="utils/localStorageUtil.js"></script>
+
 
 
 
@@ -26,19 +27,21 @@
     <script src="components/Header/Header.js"></script>
     <link rel="stylesheet" href="components/Header/Header.css">
 
-
+    <script src="components/Navigation/Navigation.js"></script>
     <!-- Products-->
     <script type="module" src="components/Products/Products.js"></script>
     <link rel="stylesheet" href="components/Products/Products.css">
 
 
     <!-- Shopping-->
-    <script src="components/Shopping/Shopping.js"></script>
-    <link rel="stylesheet" href="components/Shopping/Shopping.css">
+    <script src="components/Footer/Footer.js"></script>
+
 
     <!---->
     <link rel="stylesheet" href="components/Products/Modal.css">
 
+    <div class="back-to-top"></div>
+    <script src="index.js"></script>
 
 </body>
 

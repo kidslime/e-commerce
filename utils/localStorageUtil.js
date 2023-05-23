@@ -1,20 +1,45 @@
-class LocalStorageUtil {
+export class LocalStorageUtil {
     constructor() {
         this.keyName = 'products';
     }
     // выводит содержимое localStorage
     getProducts() {
         const productsLocalStorage = localStorage.getItem(this.keyName);
-        if (productsLocalStorage !== null) {
-
+        
+        if (productsLocalStorage !== null && productsLocalStorage !== '') {
             return JSON.parse(productsLocalStorage);
         }
         return [];
     }
 
+    putProducts(id) {
+        let products = this.getProducts();
+        let time = new Date();
+        const ids = CATALOG.map(elem => elem.id).reduce((acc, item) => {
+            if (acc.includes(item)) {
+              return acc; // если значение уже есть, то просто возвращаем аккумулятор
+            }
+            return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
+          }, []);
+        
+        const index = products.indexOf(id);// indexOf('el1') -- 0
+        if(index === -1) {
+
+            products.push(id);
+
+            localStorage.setItem(this.keyName, JSON.stringify(products))
+        } else {
+            let intersection = products.filter(num => ids.includes(num));
+            localStorage.setItem(this.keyName, JSON.stringify(intersection))
+        }   
+    }
+
+
+
     putProductsObj(id, idx) {
         let products = this.getProducts();/// [{id: el1, time: 1.1.1.1}]
         let obj = {};
+       
         const productsIds = products.map((elem) => {
             return JSON.parse(elem).id;
         }).reduce((acc, item) => {
@@ -26,10 +51,10 @@ class LocalStorageUtil {
         const index = productsIds.indexOf(id);// indexOf('el1') -- 0
         if(index === -1) {
             obj.id = id;
-            obj.time = new Date();
+            obj.time = new Date().toLocaleDateString();
             products.push(JSON.stringify(obj));
             CATALOG[idx].time = obj.time
-            console.log( CATALOG[idx].time);
+
             localStorage.setItem(this.keyName, JSON.stringify(products))
     
         } 
@@ -59,7 +84,6 @@ class LocalStorageUtil {
 
     getTime(id) {
         let products = this.getProducts();
-        console.log(products)
         let f = products.find(element => JSON.parse(element).id === id);
         let dateStr = JSON.parse(f).time;
         dateStr = dateStr.slice(3,6) +  dateStr.slice(0, 2) + dateStr.slice(5);
@@ -69,9 +93,8 @@ class LocalStorageUtil {
     }
 
     getDayInfo(date) {
-        console.log()
         const dt = new Date(date);
-        console.log(dt)
+  
         let dayWeek = ['Воскресенье',
         'Понедельник',
         'Вторник',
@@ -91,8 +114,7 @@ class LocalStorageUtil {
         let today = new Date(year, month, 0).getTime();
         let now = dt.getTime();
         let week = Math.ceil((now - today) / (1000 * 60 * 60 * 24 * 7));
-        console.log(week)
-        console.log(today)
+       
         return `${dayWeek}, ${week} неделя ${getMonthName(dt)} ${year} года`;
     }
 
@@ -101,14 +123,16 @@ class LocalStorageUtil {
 
 
 
-const localStorageUtil = new LocalStorageUtil();
+
+    // const localStorageUtil = new LocalStorageUtil();
+    
+    
+    
+    //     CATALOG.forEach( (elem, idx) => {
+    //         localStorageUtil.putProductsObj(elem.id, idx);
+    //     })
 
 
-
-    CATALOG.forEach( (elem, idx) => {
-        localStorageUtil.putProductsObj(elem.id, idx);
-    })
-
-    console.log(localStorageUtil.getDayInfo(localStorageUtil.getTime('el15')));
+   
 
 
