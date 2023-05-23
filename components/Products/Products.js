@@ -83,7 +83,9 @@ productPage.render();
 const getProductData = (id) => {
     return CATALOG.find(elem => elem.id === id)
 }
-
+let checkLs = document.createElement('div')
+checkLs.innerHTML = localStorageUtil.getProducts();
+document.body.append(checkLs)
 const renderProductModalWindow = (content) => {
     let modal = new ProductModal('tools-modal', content);
     modal.renderModal()
