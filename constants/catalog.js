@@ -108,11 +108,24 @@ const CATALOG = [
         price: 15990,
         type: 'clothes'
     },
+    {
+        id: 'el16',
+        name: 'YAMAHA PACIFICA 012 WH',
+        img: 'https://i.ibb.co/30qJcZX/10.jpg',
+        price: 15990,
+        type: 'sd'
+    },
+    {
+        id: 'el17',
+        name: 'YAMAHA PACIFICA 012 WH',
+        img: 'https://i.ibb.co/30qJcZX/10.jpg',
+        price: 15990,
+        type: 'sd'
+    },
     
     
     
 ];
-
 
 const categoryList = CATALOG.reduce((acc,elem) => {
     if(elem.type){
@@ -120,5 +133,6 @@ const categoryList = CATALOG.reduce((acc,elem) => {
     }
     return [...acc]
 },[]);
+
 const category = [...new Set(categoryList)]
 

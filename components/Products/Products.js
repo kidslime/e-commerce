@@ -42,10 +42,6 @@ class Products {
                         <span class="products-element__date-info">${localStorageUtil.getDayInfo(localStorageUtil.getTime(id))}</span>
                 
                 `;
-               
-                
-                
-
 
                 }
                 
@@ -54,15 +50,10 @@ class Products {
                     <ul class="products-container">
                         ${htmlCatalog}
                     </ul>
-
                 `;
         
                 elem.firstElementChild.innerHTML+=html;
 
-
-
-
-            
             html = ''
             htmlCatalog =''
         })
@@ -72,14 +63,16 @@ class Products {
 }
  const localStorageUtil = new LocalStorageUtil();
     
-    
-    
-        CATALOG.forEach( (elem, idx) => {
-            localStorageUtil.putProductsObj(elem.id, idx);
-        })
+CATALOG.forEach( (elem, idx) => {
+    localStorageUtil.putProductsObj(elem.id, idx);
+})
+
 const productPage = new Products();
+
 productPage.renderCategory();
 productPage.render();
+
+
 const getProductData = (id) => {
     return CATALOG.find(elem => elem.id === id)
 }
@@ -88,6 +81,7 @@ const renderProductModalWindow = (content) => {
     let modal = new ProductModal('tools-modal', content);
     modal.renderModal()
 }
+
 const addBuyProductClickHandler = () => {
     document.querySelector('#products').addEventListener('click', (e) => {
         if(e.target.classList.contains('products-element__btn')) {
@@ -98,10 +92,7 @@ const addBuyProductClickHandler = () => {
             
     })
 }
+
 addBuyProductClickHandler();
 
 
-const renderModalWindow = (content) => {
-    let modal = new Modal('tools-modal');
-    modal.buildModal(content)
-}

@@ -2,7 +2,6 @@ export class LocalStorageUtil {
     constructor() {
         this.keyName = 'products';
     }
-    // выводит содержимое localStorage
     getProducts() {
         const productsLocalStorage = localStorage.getItem(this.keyName);
         
@@ -17,12 +16,12 @@ export class LocalStorageUtil {
         let time = new Date();
         const ids = CATALOG.map(elem => elem.id).reduce((acc, item) => {
             if (acc.includes(item)) {
-              return acc; // если значение уже есть, то просто возвращаем аккумулятор
+              return acc; 
             }
-            return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
+            return [...acc, item]; 
           }, []);
         
-        const index = products.indexOf(id);// indexOf('el1') -- 0
+        const index = products.indexOf(id);
         if(index === -1) {
 
             products.push(id);
@@ -34,21 +33,19 @@ export class LocalStorageUtil {
         }   
     }
 
-
-
     putProductsObj(id, idx) {
-        let products = this.getProducts();/// [{id: el1, time: 1.1.1.1}]
+        let products = this.getProducts();
         let obj = {};
        
         const productsIds = products.map((elem) => {
             return JSON.parse(elem).id;
         }).reduce((acc, item) => {
             if (acc.includes(item)) {
-              return acc; // если значение уже есть, то просто возвращаем аккумулятор
+              return acc;
             }
-            return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
-        }, []); ///['el1', 'el2']
-        const index = productsIds.indexOf(id);// indexOf('el1') -- 0
+            return [...acc, item]; 
+        }, []); 
+        const index = productsIds.indexOf(id);
         if(index === -1) {
             obj.id = id;
             obj.time = new Date().toLocaleDateString('ru-RU');
@@ -65,10 +62,6 @@ export class LocalStorageUtil {
                 }
                 return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
               }, []);
-
-           
-
-
             products.forEach((elem,index) => {
                 let id = JSON.parse(elem).id;
 
@@ -84,19 +77,14 @@ export class LocalStorageUtil {
 
     getTime(id) {
         let products = this.getProducts();
-       
         let f = products.find(element => JSON.parse(element).id === id);
         let dateStr = JSON.parse(f).time;
         dateStr = dateStr.slice(3,6) +  dateStr.slice(0, 2) + dateStr.slice(5);
         dateStr.slice(0, 2)
-        let checkLs = document.createElement('div')
-            checkLs.innerHTML = dateStr;
-            document.body.append(checkLs, typeof dateStr) 
         return dateStr; //new Date('20.05.23')
     }
 
     getDayInfo(date) {
-        console.log(date)
         const dt = new Date(date);
   
         let dayWeek = ['Воскресенье',
@@ -121,21 +109,7 @@ export class LocalStorageUtil {
        
         return `${dayWeek}, ${week} неделя ${getMonthName(dt)} ${year} года`;
     }
-
-    
 }
-
-
-
-
-    // const localStorageUtil = new LocalStorageUtil();
-    
-    
-    
-    //     CATALOG.forEach( (elem, idx) => {
-    //         localStorageUtil.putProductsObj(elem.id, idx);
-    //     })
-
 
    
 

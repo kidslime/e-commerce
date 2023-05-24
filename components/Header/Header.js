@@ -2,30 +2,21 @@ class Header {
 
     render() {
         const html =`
-    
-       
+                <div class="container">
+                    <div class="header__inner">
 
+                        <span class="hamburger header__hamburger">
+                            <span class="hamburger__line"></span>
+                        </span>
+                        <a href="#" class="logo">
+                            <span class="logo__title">Clothes</span>
+                            <span class="logo__subtitle">shop</span>
+                        </a>
+                    
 
-        
-        <div class="container">
-            <div class="header__inner">
-
-                <span class="hamburger header__hamburger">
-                    <span class="hamburger__line"></span>
-                </span>
-                <a href="#" class="logo">
-                    <span class="logo__title">Clothes</span>
-                    <span class="logo__subtitle">shop</span>
-                </a>
-               
-
-            </div>
-        </div>
-   
-
-
-
-        `;
+                    </div>
+                </div>
+                `;
         ROOT_HEADER.innerHTML = html;
     }
 

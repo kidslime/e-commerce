@@ -3,6 +3,7 @@ class Footer {
     render() {
         
         let navigation = '';
+
         category.forEach(elem => {
             navigation += `
             <li class="menu__item">
@@ -11,37 +12,24 @@ class Footer {
 
             `;
         })
-        const html =`
-    
-    
-        
-        
-        <div class="container">
-            <div class="footer__inner">
-                <a href="#" class="logo">
-                    <span class="logo__title">Clothes</span>
-                    <span class="logo__subtitle">shop</span>
-                </a>
-                <nav class="footer__menu"><ul class="menu-column">
-                ${navigation}
-            </ul></nav>
-                
+        const html =`    
+            <div class="container">
+                <div class="footer__inner">
+                    <a href="#" class="logo">
+                        <span class="logo__title">Clothes</span>
+                        <span class="logo__subtitle">shop</span>
+                    </a>
+                    <nav class="footer__menu"><ul class="menu-column">
+                    ${navigation}
+                </ul></nav>
+                    
+                </div>
             </div>
-        </div>
-   
-   
-        
-
-
-        `;
-        
+            `;
         ROOT_FOOTER.innerHTML = html;
     }
 
 }
 
-
-
 const footer = new Footer();
 footer.render();
-console.log(ROOT_HEADER);
