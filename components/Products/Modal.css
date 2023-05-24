@@ -75,9 +75,17 @@
     overflow: hidden;
 }
 
+.modal__content {
+    min-width: 500px;
+}
+
 @media (max-width: 767px) {
     .modal {
         max-width: 500px;
+    }
+
+    .modal__content {
+        min-width: 300px;
     }
 }
 
@@ -91,6 +99,8 @@
     .modal__title {
         font-size: 1.5rem;
     }
+
+
 }
 
 @media (max-width: 650px) {
@@ -116,6 +126,10 @@
     }
 
     .choose-data {
+        min-width: 160px;
+    }
+
+    .modal__content {
         min-width: 160px;
     }
 }

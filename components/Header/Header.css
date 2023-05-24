@@ -799,10 +799,7 @@ h4 {
     align-items: center;
 }
 
-.modal__content-img {
-    width: 500px;
-    border-radius: 9px;
-}
+
 
 @media (max-width: 1200px) {
     .modal__content-img {
@@ -860,6 +857,8 @@ h4 {
 .unshow-scroll {
     overflow: hidden;
 }
+
+
 
 section {
     scroll-margin-top: 100px;
@@ -956,6 +955,10 @@ section {
     z-index: 0;
 }
 
+.modal__content {
+    max-width: 500px;
+}
+
 @media (max-width: 767px) {
     .back-to-top {
         display: none;
@@ -972,6 +975,8 @@ section {
         align-items: center;
         text-align: center;
     }
+
+
 }
 
 .amount {
