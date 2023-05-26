@@ -1,12 +1,15 @@
 .products-container {
-    display: grid;
+    /* display: grid;
 
     grid-template-columns: repeat(auto-fit, minmax(150px, min(100%/3, max(64px, 100%/5))));
 
     grid-gap: 25px;
     width: 80%;
     max-width: 1200px;
-    margin: var(--spacing-large) auto;
+    margin: var(--spacing-large) auto; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
 
 }
 

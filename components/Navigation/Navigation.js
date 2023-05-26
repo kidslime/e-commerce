@@ -17,6 +17,8 @@ class Navigation {
                     ${navigation}
                 </ul>
             </nav>
+            <a href="#" class="themetoggle">
+                    <span class="material-icons">wb_sunny</span></a>
             `
         document.querySelector('#header').firstElementChild.firstElementChild.innerHTML+=html;      
     }

@@ -8,11 +8,11 @@ class Header {
                         <span class="hamburger header__hamburger">
                             <span class="hamburger__line"></span>
                         </span>
-                        <a href="#" class="logo">
-                            <span class="logo__title">Clothes</span>
+                        <a href="" class="logo">
+                            <span class="logo__title">Guitar</span>
                             <span class="logo__subtitle">shop</span>
                         </a>
-                    
+                        
 
                     </div>
                 </div>
