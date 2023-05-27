@@ -472,6 +472,53 @@ h2 {
     }
 }
 
+h3 {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.3rem;
+    letter-spacing: 0.06em;
+    color: #545454;
+    margin-top: 2.5rem;
+    margin-bottom: 2.4rem;
+}
+
+@media (max-width: 595px) {
+    h3 {
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.7rem;
+    }
+}
+
+@media (max-width: 425px) {
+    h3 {
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.3rem;
+    }
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7rem;
+    letter-spacing: 0.06em;
+    color: #545454;
+}
+
+@media (max-width: 425px) {
+    h4 {
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+        letter-spacing: 0;
+    }
+}
 
 .hamburger__line,
 .hamburger::after,
@@ -829,7 +876,7 @@ h2 {
 
 
 section {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 110px;
 }
 
 .back-to-top {
@@ -972,7 +1019,7 @@ section {
 html,
 body {
     font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
     color: #222;
 }
 
@@ -988,7 +1035,6 @@ html.dark,
 
 .dark button {
     border-color: darksalmon;
-    background: floralwhite;
 }
 
 .dark .back-to-top {

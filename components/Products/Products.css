@@ -53,3 +53,9 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 490px) {
+    .products-container {
+        padding: 0 10px;
+    }
+}

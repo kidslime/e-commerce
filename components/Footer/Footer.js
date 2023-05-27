@@ -16,7 +16,7 @@ class Footer {
             <div class="container">
                 <div class="footer__inner">
                     <a href="#" class="logo">
-                        <span class="logo__title">Clothes</span>
+                        <span class="logo__title">Guitar</span>
                         <span class="logo__subtitle">shop</span>
                     </a>
                     <nav class="footer__menu"><ul class="menu-column">
